@@ -18,5 +18,31 @@ ciphers based on the letters of that keyword.
 ### How it works:
 Keyword: A word or phrase is repeated until it matches the length of the plaintext.  
 Mechanism: Each letter of the plaintext is shifted by the corresponding letter of the keyword (where A=0, B=1, etc.).      
-Encryption: C_i = (P_i + K_i) \mod 26   
-Decryption: P_i = (C_i - K_i) \mod 26   
+Encryption: C = (P + K) \mod 26   
+Decryption: P = (C - K) \mod 26   
+
+
+## one-time pad
+The One-Time Pad (OTP) is a theoretically unbreakable encryption technique. It is a substitution cipher where the key is a random string of characters that is at least as long as the plaintext and is used only once.
+### how it works
+Its working principle of Decryption and Encryption is identical with Vigenère Cipher. the only thing is that the key should be as the same length as the plaintext.  
+Encryption: C = (P + K) \mod 26     
+Decryption: P = (C - K) \mod 26     
+
+
+## summary
+Three are Substitution Ciphers that rely on the same fundamental logic: shifting the plaintext letter by a certain value modulo 26.  
+The only difference is how the shift value (K) is determined for each letter.  
+### key Takeaway:
+Caesar is a Vigenère cipher with a keyword length of 1.   
+Vigenère is a One-Time Pad with a repeating, non-random key.   
+OTP is the "perfect" version where the key never repeats and is truly random.   
+
+
+## Transposition Cipher
+The Transposition Cipher is a cryptographic technique that rearranges the positions of the characters in the plaintext without changing the characters themselves. Unlike the One-Time Pad (which is a Substitution cipher), this is a Permutation technique.    
+### How it works
+The code you provided implements a Columnar Transposition (specifically similar to a Rail Fence pattern). It writes the message out effectively in rows but reads them out in columns based on the key.
+this relies on index hopping:
+1. Index Selection: You select characters at indices:i, i+k, i+2k, ...  
+2. Concatenation: You do this for every starting column from 0 to k-1.
