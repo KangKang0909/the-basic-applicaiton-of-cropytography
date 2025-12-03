@@ -79,3 +79,29 @@ To decrypt the ciphertext, C, the receiver uses the private key, d, and the form
 P = C<sup>d</sup> mod n
 
 ### Digital Signature Standard
+Digital signature infrastructures have three distinct goals:   
+Authenticity: It verifies that the signer is who they say they are. It confirms the source of the message.   
+Integrity: It proves that the contents of the message have not been altered or modified in transit. If even one bit of data is changed, the signature becomes invalid.   
+Non-Repudiation: It ensures the signer cannot deny signing the document later. Because the signature is unique to both the document and the signer's private key, it serves as legally binding proof of origin   
+
+Digital signatures work as follows:
+• If Alice wants to digitally sign a message to Bob, she performs the following actions:   
+– Alice generates a message digest of the original plain-text message using one of the cryptographically sound hashing algorithms, such as SHA-1.    
+– Alice then encrypts only the message digest using her private key. This encrypted message digest is the digital signature.    
+– Alice appends the signed message digest to the plain-text message.   
+– Alice transmits the appended message to Bob.   
+
+• When Bob receives the digitally signed message, he reverses the procedure, as follows:  
+– Bob decrypts the digital signature using Alice’s public key.  
+– Bob uses the same hashing function to create a message digest of the full plain-text message received from Alice.   
+– Bob then compares the decrypted message digest he received from Alice with the message digest he computed himself.    
+– If the two digests match, he can be assured that the message he received was sent by Alice. If they do not match, either the message was not sent by Alice or the message was modified while in transit.   
+
+### [Diffie-Hellman Algorithm](Diffie-Hellman-Algorithm.py)
+Algorithm details:  
+1. Alice picks numbers p and g, where p is a large prime and g is a number less than p, Alice could send the numbers (publicly) to Bob.   
+2. Both Alice and Bob choose (separately) a 512-bit number at random and keeps it secret. Alice’s number is S<sub>A</sub>, and Bob’s number is $S_B$.   
+3. Alice computes $(T_A = g^{S_A} \mod p)$. Bob computes $(T_B = g^{S_B} \mod p)$. 
+4. Alice and Bob exchange their numbers (in either order): $T A \Leftrightarrow T B$    
+5. Alice computes $(K = T_B^{S_A} \mod p)$. Bob computes $(K = T_A^{S_B} \mod p)$. The result will be the same number, $K$. That is because:$$T_B^{S_A} = (g^{S_B})^{S_A} = g^{(S_B S_A)} = g^{(S_A S_B)} = (g^{S_A})^{S_B} = T_A^{S_B} \mod p$$  
+
