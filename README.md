@@ -57,23 +57,25 @@ this relies on index hopping:
 RSA encryption is, in fact, almost completely obsolete, but RSA is one of the classic asymmetric algorithms and does a good job.
 This concept will be helpful when learning about more modern approaches.
 
-### [RSA Key Generation](RSA%20Key%20Generation)
+### [RSA Key Generation](RSA%20Key%20Generation.py)
 1. Generate a large number, n:    
 • Select two large prime numbers, p and q, so that n = pq.   
 • The number n should be large, typically a minimum of 512 bits.   
 2. Form the public key:  
 • Find a number, e, such that [1 < e < (p − 1)(q − 1)].   
 • The values e and (p − 1)(q − 1) must be coprime; no common factor for e and (p − 1)(q − 1), except for 1.   
-• [Using the codes to look for the co-primes between both.](Find%20Co-primes)   
+• [Using the codes to look for the co-primes between both.](Find%20Co-primes.py)   
 • The public key is the pair (n, e).   
 3. Generate the private key:   
 • A number, d, is calculated from p, q, and e such as.   
 • The number d is the inverse of [e mod (p − 1)(q − 1)].   
-• [Using the Extended Euclidean algorithm to look for the inverse](Extended%20Euclidean%20Algorithm)      
+• [Using the Extended Euclidean algorithm to look for the inverse](Extended%20Euclidean%20Algorithm.py)      
 • The private key is the pair (n, d).   
 
-### [RSA – Encryption/Decryption](RSA_En_De)  
+### [RSA – Encryption/Decryption](RSA_En_De.py)  
 To encrypt the a plaintext message P, using the public key (n, e), the sender uses the formula   
-C = P^e^ mod n  
+C = P<sup>e</sup> mod n  
 To decrypt the ciphertext, C, the receiver uses the private key, d, and the formula:  
-P = C^d^ mod n
+P = C<sup>d</sup> mod n
+
+### Digital Signature Standard
