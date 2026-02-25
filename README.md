@@ -40,7 +40,7 @@ Vigenère is a One-Time Pad with a repeating, non-random key.
 OTP is the "perfect" version where the key never repeats and is truly random.   
 
 
-### Transposition Cipher
+### [Transposition Cipher](Transposition%20Cipher%20-%20Encryption.py)
 The Transposition Cipher is a cryptographic technique that rearranges the positions of the characters in the plaintext without changing the characters themselves. Unlike the One-Time Pad (which is a Substitution cipher), this is a Permutation technique.    
 ### How it works
 The code you provided implements a Columnar Transposition (specifically similar to a Rail Fence pattern). It writes the message out effectively in rows but reads them out in columns based on the key.
@@ -50,7 +50,6 @@ this relies on index hopping:
 
 
 ## security key cryptography 
-
 
 
 ## public key cryptography
@@ -103,5 +102,5 @@ Algorithm details:
 2. Both Alice and Bob choose (separately) a 512-bit number at random and keeps it secret. Alice’s number is S<sub>A</sub>, and Bob’s number is $S_B$.   
 3. Alice computes $(T_A = g^{S_A} \mod p)$. Bob computes $(T_B = g^{S_B} \mod p)$. 
 4. Alice and Bob exchange their numbers (in either order): $T A \Leftrightarrow T B$    
-5. Alice computes $(K = T_B^{S_A} \mod p)$. Bob computes $(K = T_A^{S_B} \mod p)$. The result will be the same number, $K$. That is because:$$T_B^{S_A} = (g^{S_B})^{S_A} = g^{(S_B S_A)} = g^{(S_A S_B)} = (g^{S_A})^{S_B} = T_A^{S_B} \mod p$$  
+5. Alice computes $(K = T_B^{S_A} \mod p)$. Bob computes $(K = T_A^{S_B} \mod p)$. The result will be the same number, $K$. That is because:<i>T</i><sub>B</sub><sup>{<i>S</i><sub>A</sub>}</sup> = (<i>g</i><sup><i>S</i><sub>B</sub></sup>)<sup><i>S</i><sub>A</sub></sup> = <i>g</i><sup>(<i>S</i><sub>B</sub> <i>S</i><sub>A</sub>)</sup> = <i>g</i><sup>(<i>S</i><sub>A</sub> <i>S</i><sub>B</sub>)</sup> = (<i>g</i><sup><i>S</i><sub>A</sub></sup>)<sup><i>S</i><sub>B</sub></sup> = <i>T</i><sub>A</sub><sup><i>S</i><sub>B</sub></sup> mod <i>p</i>
 
